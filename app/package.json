@@ -1,0 +1,16 @@
+{
+  "name": "customers-excercise",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  },
+  "scripts": {
+       "prettier": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "Yishai z.",
+  "license": "ISC"
+}

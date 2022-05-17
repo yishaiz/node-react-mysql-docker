@@ -1,0 +1,19 @@
+{
+  "name": "create-seed-data-from-json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "create-sql-seed-from-data.js",
+  "scripts": {
+    "start": "nodemon ./create-sql-seed-from-data.js",
+    "prettier": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
+}

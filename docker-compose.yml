@@ -1,0 +1,46 @@
+version: "3.3"
+
+volumes:
+  db-vol:
+
+services:
+
+  db:
+    image: mysql:5.6
+    container_name: db
+    environment: 
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: excercise
+            MYSQL_USER: user
+            MYSQL_PASSWORD: 12345
+    restart: unless-stopped
+    volumes:
+      - db-vol:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  db_seeder:
+    image: mysql:5.6
+    volumes:
+      - ./db:/db
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+    entrypoint: [ "bash", "-c", "sleep 10 && mysql -uroot -proot --host=db --port=3306 excercise < /db/db-seed.sql && exit"] 
+    depends_on:
+      - db
+  server:
+    build: .
+    depends_on:
+      - db
+    environment: 
+      MYSQL_HOST: db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: excercise
+    ports:
+      - 5000:5000
+    links:
+      - db
+    command: npm start
+
+ 

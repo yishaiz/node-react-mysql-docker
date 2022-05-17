@@ -1,0 +1,9 @@
+.caption {
+  color: lightskyblue;
+  margin: 14px;
+}
+
+.row {
+  border: solid 1px #f7f7f9;
+  /* padding: 15px; */
+}
