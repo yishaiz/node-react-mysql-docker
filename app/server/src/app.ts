@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import cors from 'cors';
 import bodyParser from 'body-parser';
 import { json } from 'body-parser';
 import { customersRoute } from './routes/customersRoute';
@@ -7,6 +8,7 @@ import { errorHandler } from './errors/error-handler';
 import { redirectToRoot } from './routes/redirectToRoot';
 
 const app = express();
+app.use(cors())
 
 // const corsOptions = {
 //   origin: "*"
