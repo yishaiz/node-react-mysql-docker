@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import { json } from 'body-parser';
@@ -8,8 +8,16 @@ import { errorHandler } from './errors/error-handler';
 import { redirectToRoot } from './routes/redirectToRoot';
 
 const app = express();
+// const corsConfig = new EnableCorsAttribute("*", "*", "*");
+//             config.EnableCors(cors);
 app.use(cors())
 
+
+// app.use((req: Request, res: Response, next: NextFunction) => {
+//   res.removeHeader('Cross-Origin-Resource-Policy');
+//   res.removeHeader('Cross-Origin-Embedder-Policy');
+//   next();
+// });
 // const corsOptions = {
 //   origin: "*"
 // };
